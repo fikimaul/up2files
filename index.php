@@ -9,8 +9,8 @@
 	}
 	else{
 		$query="select * from pengguna where iduser=$iduser";
-		$sql=mysql_query($query);
-		$row = mysql_fetch_assoc($sql);
+		$sql=mysqli_query($kon,$query);
+		$row = mysqli_fetch_assoc($sql);
 		
 ?>
 <div id="form_chat">
@@ -38,7 +38,7 @@
 						
 						$nama=$row['nama'];
 						echo "<div id='notif'>";
-						$sql=mysql_query("insert into chat (iduser,nama,tanggal,chat) values ('$iduser','$nama','$tgl','$chat')");
+						$sql=mysqli_query($kon,"insert into chat (iduser,nama,tanggal,chat) values ('$iduser','$nama','$tgl','$chat')");
 						if ($sql)
 							echo "Chat Terkirim";
 						else {
@@ -51,9 +51,9 @@
 <div id="tampil_chat">
 	<table width="100%">
 	<?php
-		$sql_tampil=mysql_query("select * from chat order by kode_chat desc");
+		$sql_tampil=mysqli_query($kon,"select * from chat order by kode_chat desc");
 		$count=0;
-		while ($row_tampil=mysql_fetch_assoc($sql_tampil)){
+		while ($row_tampil=mysqli_fetch_assoc($sql_tampil)){
 		if ($count % 2 ==0 ){
 	?>
 

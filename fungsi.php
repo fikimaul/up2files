@@ -47,9 +47,9 @@
 <?php
 		include "koneksi.php";
 		
-		$sql=mysql_query("select * from pengguna order by iduser desc limit 0,6");
+		$sql=mysqli_query($kon,"select * from pengguna order by iduser desc limit 0,6");
 		
-		while ($row = mysql_fetch_assoc($sql)){	
+		while ($row = mysqli_fetch_assoc($sql)){	
 				$url='detil_user.php?iduser='.$row['iduser'];
 ?>
 	<li> <a href="<?php echo $url ?>"><?php echo $row['nama'] ?></a></li>
@@ -103,10 +103,11 @@ function  login($login,$iduser){
 <?php
 }
 else {
+		include "koneksi.php";
 		$query="select * from pengguna where iduser=$iduser";
-		$sql=mysql_query($query);
+		$sql=mysqli_query($kon,$query);
 		
-		$row = mysql_fetch_assoc($sql);
+		$row = mysqli_fetch_assoc($sql);
 				echo "<table width='250px'><tr><td align='center'><img src='t_avatar/t_".$row['avatar']."' width='100px' height='100px'/></td></tr></table>";
 				echo "<hr/><b><p align='center'>Welcome : ".$row['nama']."</p></b>";
 ?>

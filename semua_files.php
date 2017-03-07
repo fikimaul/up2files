@@ -8,14 +8,14 @@
 <h3>SEMUA FILE</h3>
 <div class="semua_file">
 <?php
-	$sql = mysql_query("select * from file order by idfile desc");
-		if (!mysql_affected_rows())
+	$sql = mysqli_query($kon,"select * from file order by idfile desc");
+		if (!mysqli_affected_rows($sql))
 		{
 			echo "file kosong";
 		}
 	
 	$item=0;
-	while ($row = mysql_fetch_assoc($sql)){
+	while ($row = mysqli_fetch_assoc($sql)){
 				$url='files/'.$row['nama'];
 				echo "Nama File : <a href='detil_file.php?idfile=".$row['idfile']."'>".$row['nama']."</a><br>";
 				echo "Keterangan  : ".$row['keterangan']."<br>";

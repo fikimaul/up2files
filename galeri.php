@@ -8,10 +8,10 @@
 ?>
 <h3>GALERI</h3>
 <?php
-	$sql = mysql_query("select * from file where jenis='image' order by idfile desc");
+	$sql = mysqli_query($kon,"select * from file where jenis='image' order by idfile desc");
 	echo "<table align='center'>";
 	$i=0;
-	while ($row = mysql_fetch_assoc($sql)){
+	while ($row = mysqli_fetch_assoc($sql)){
 	$url='files/'.$row['nama'];
 	if ($i>=3)
 		$i=0;

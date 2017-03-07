@@ -26,7 +26,7 @@
 
 		if (move_uploaded_file($tmpFile,$tujuanBerkas)){
 					echo "file sukses di upload";
-					$upload = mysql_query($sql);
+					$upload = mysqli_query($kon,$sql);
 		}
 		else{
 			echo"Gagal Upload";

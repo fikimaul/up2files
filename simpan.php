@@ -26,8 +26,8 @@
 			}
 			
 			else{
-						$query=mysql_query("select * from pengguna where email='$reg_email'");
-						$baris=mysql_num_rows($query);
+						$query=mysqli_query($kon,"select * from pengguna where email='$reg_email'");
+						$baris=mysqli_num_rows($query);
 			
 						if ($baris==1){
 							echo "Email sudah dipakai!!";
@@ -35,7 +35,7 @@
 						}
 	
 						if ($baris==0){
-							$sql=mysql_query("INSERT INTO pengguna (`nama`, `email`, `sandi`) VALUES ('$reg_nama', '$reg_email', '$reg_sandi')");
+							$sql=mysqli_query($kon,"INSERT INTO pengguna (`nama`, `email`, `sandi`) VALUES ('$reg_nama', '$reg_email', '$reg_sandi')");
 							if ($sql){
 										echo "Anda Sukses Terdaftar. <a href='index.php'>Klik Disini</a> untuk login.";
 										

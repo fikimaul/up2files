@@ -4,8 +4,8 @@
 	navigasi();
 	login($login,$iduser);
     kiri();
-	$sql=mysql_query("select * from pengguna where iduser=$iduser");
-	$row=mysql_fetch_assoc($sql);
+	$sql=mysqli_query($kon,"select * from pengguna where iduser=$iduser");
+	$row=mysqli_fetch_assoc($sql);
 ?>
 	<table>
 	<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="post"  enctype="multipart/form-data">
@@ -58,7 +58,6 @@
 			if($size > 0){
 				if($size > $maxsize){
 					echo "Ukuran File Terlalu Besar <br/>";
-					break;
 				}
 				if(!in_array($type, $typeygboleh)){
 						echo "Type File Tidak Dikenal <br/>";
@@ -72,8 +71,8 @@
 						$edit_sandi=$sandi_lama;
 				}
 				
-				$sql=mysql_query("select * from pengguna where iduser=$iduser");
-				$row=mysql_fetch_assoc($sql);
+				$sql=mysqli_query($kon,"select * from pengguna where iduser=$iduser");
+				$row=mysqli_fetch_assoc($sql);
 			
 				if ($row['sandi']!=$sandi_lama){
 					echo "sandi salah";
@@ -82,7 +81,7 @@
 					if (strlen(trim($avatar))==0){
 						$avatar=$row['avatar'];
 					}
-					$sql_update=mysql_query("update pengguna set nama='$edit_nama', email='$edit_email', sandi='$edit_sandi', avatar='$namaava'  where iduser=$iduser");
+					$sql_update=mysqli_query($kon,"update pengguna set nama='$edit_nama', email='$edit_email', sandi='$edit_sandi', avatar='$namaava'  where iduser=$iduser");
 					if ($sql_update){
 						echo "Profil Berhasil Di Update";
 					}

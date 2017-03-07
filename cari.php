@@ -8,14 +8,14 @@
 	login($login,$iduser);    
 	kiri();
 	
-	$sql = mysql_query("select * from file where nama like '%$cari%' order by idfile");
-	$baris=mysql_num_rows($sql);
+	$sql = mysqli_query($kon,"select * from file where nama like '%$cari%' order by idfile");
+	$baris=mysqli_num_rows($sql);
 	if ($baris ==0){
 			echo "404 File Not Found";
 		}
 	else{
 		echo "<h3>$baris File Telah Ditemukan </h3><hr>";
-		while ($row = mysql_fetch_assoc($sql)){
+		while ($row = mysqli_fetch_assoc($sql)){
 		$url='files/'.$row['nama'];
 		
 		echo "Nama File : ".$row['nama']."<br>";

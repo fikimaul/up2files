@@ -8,12 +8,12 @@
     kiri();
 	$idfile=$_GET['idfile'];
 	
-	$sql=mysql_query("select pengguna.nama as user,file.nama, file.keterangan,file.tanggal, file.size from pengguna,file where idfile=$idfile");
+	$sql=mysqli_query($kon,"select pengguna.nama as user,file.nama, file.keterangan,file.tanggal, file.size from pengguna,file where idfile=$idfile");
 	if (!$sql){
 		echo "Cie Mau Pentes";
 	}
 	else{
-	$row = mysql_fetch_assoc($sql);
+	$row = mysqli_fetch_assoc($sql);
 	$url='files/'.$row['nama'];
 	echo "Nama File : ".$row['nama']."<br>";
 	echo "Keterangan  : ".$row['keterangan']."<br>";

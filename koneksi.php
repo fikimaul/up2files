@@ -5,6 +5,6 @@
 	$pass ="";
 	$dbName="u581249997_upld";
 
-	$kon= mysql_connect($host,$user,$pass) or die("gagal koneksi");
-	$hasil = mysql_select_db($dbName);
+	$kon= mysqli_connect($host,$user,$pass) or die("gagal koneksi");
+	$hasil = mysqli_select_db($kon,$dbName);
 ?>

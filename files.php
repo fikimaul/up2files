@@ -6,12 +6,12 @@
 	login($login,$iduser);
     kiri();
 
-	$sql = mysql_query("select * from file where iduser=$iduser");
+	$sql = mysqli_query($kon,"select * from file where iduser=$iduser");
 	
-	$jum_row=mysql_num_rows($sql);
+	$jum_row=mysqli_num_rows($sql);
 	
 	if ($jum_row!=0){
-			while ($row = mysql_fetch_assoc($sql)){
+			while ($row = mysqli_fetch_assoc($sql)){
 			$url='files/'.$row['nama'];
 			
 			echo "Nama File : ".$row['nama']."<br>";

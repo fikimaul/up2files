@@ -12,8 +12,8 @@ if (isset($_POST['submit'])){
 			$sandi =md5( $_POST['sandi']);
 
 			
-			$query=mysql_query("select * from pengguna where email='$email' and sandi='$sandi'");
-			$baris=mysql_num_rows($query);
+			$query=mysqli_query($kon,"select * from pengguna where email='$email' and sandi='$sandi'");
+			$baris=mysqli_num_rows($query);
 			if ($baris==1){
 				$status="true";
 				$_SESSION['login']=$email;
@@ -29,5 +29,5 @@ else {
 	}
 	echo $status;
 
-mysql_close();
+mysqli_close($kon);
 ?>

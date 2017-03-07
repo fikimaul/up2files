@@ -48,7 +48,7 @@
 						echo "<div id='notif'>";
 						echo "File Sukses Di Upload!!<br/>";
 						echo "</div>";
-						$upload = mysql_query($sql);
+						$upload = mysqli_query($kon,$sql);
 			}
 			else{
 				echo "<div id='notif'>";
